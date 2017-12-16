@@ -1,4 +1,7 @@
 #!/bin/bash
+########## https://t.me/peace_data_bot
+########## License: WTFPL
+########## Source: https://github.com/Overtorment/peace_data_bot
 
 # script should run every 30 min
 # */30 * * * *  bash script.sh
