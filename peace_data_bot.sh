@@ -72,7 +72,7 @@ LOWEST=`cat $DIR/btcusd.log | tail -n 96 | sort -n | head -n 1`
 if [ $LOWEST = $BTCUSD ]
 then
     TEXT=`awk 'NR % 4 == 0' $DIR/btcusd.log | tail -n 24 | /usr/local/bin/spark`
-    TEXT="Пока закупаться! Лучшая цена за 48ч: \$$BTCUSD Двухдневка: $TEXT"
+    TEXT="Пора закупаться! Лучшая цена за 48ч: \$$BTCUSD Двухдневка: $TEXT"
     for ID in `cat $DIR/userids.log`
     do
         curl -s --max-time $TIMEOUT -d "chat_id=$ID&disable_web_page_preview=1&text=$TEXT" $URL > /dev/null    
@@ -86,7 +86,7 @@ LOWEST=`cat $DIR/btcusd.log | tail -n 48 | sort -n | head -n 1`
 if [ $LOWEST = $BTCUSD ]
 then
     TEXT=`awk 'NR % 2 == 0' $DIR/btcusd.log | tail -n 24 | /usr/local/bin/spark`
-    TEXT="Пока закупаться! Лучшая цена за 24ч: \$$BTCUSD Дневка: $TEXT"
+    TEXT="Пора закупаться! Лучшая цена за 24ч: \$$BTCUSD Дневка: $TEXT"
     for ID in `cat $DIR/userids.log`
     do
         curl -s --max-time $TIMEOUT -d "chat_id=$ID&disable_web_page_preview=1&text=$TEXT" $URL > /dev/null    
