@@ -44,7 +44,7 @@ mv $DIR/userids.log.uniq $DIR/userids.log
 HIGHEST=`cat $DIR/btcusd.log | sort -n | tail -n 1`
 if [ $HIGHEST = $BTCUSD ]
 then
-    TEXT=`awk 'NR % 2 == 0' $DIR/btcusd.log | tail -n 24 | /usr/local/bin/spark`
+    TEXT=`awk 'NR % 2 == 0' $DIR/btcusd.log | tail -n 22 | /usr/local/bin/spark`
     TEXT="Новый Хай! \$$BTCUSD Дневка: $TEXT"
     for ID in `cat $DIR/userids.log`
     do
@@ -57,8 +57,8 @@ fi
 LOWEST=`cat $DIR/btcusd.log | tail -n 336 | sort -n | head -n 1`
 if [ $LOWEST = $BTCUSD ]
 then
-    TEXT=`awk 'NR % 14 == 0' $DIR/btcusd.log | tail -n 24 | /usr/local/bin/spark`
-    TEXT="ВРЕМЯ ЗАКУПАТЬСЯ БИТКАМИ! Лучшая цена а неделю: \$$BTCUSD Неделя: $TEXT"
+    TEXT=`awk 'NR % 14 == 0' $DIR/btcusd.log | tail -n 22 | /usr/local/bin/spark`
+    TEXT="ВРЕМЯ ЗАКУПАТЬСЯ! Лучшая цена за неделю: \$$BTCUSD Неделя: $TEXT"
     for ID in `cat $DIR/userids.log`
     do
         curl -s --max-time $TIMEOUT -d "chat_id=$ID&disable_web_page_preview=1&text=$TEXT" $URL > /dev/null    
@@ -71,7 +71,7 @@ fi
 LOWEST=`cat $DIR/btcusd.log | tail -n 96 | sort -n | head -n 1`
 if [ $LOWEST = $BTCUSD ]
 then
-    TEXT=`awk 'NR % 4 == 0' $DIR/btcusd.log | tail -n 24 | /usr/local/bin/spark`
+    TEXT=`awk 'NR % 4 == 0' $DIR/btcusd.log | tail -n 22 | /usr/local/bin/spark`
     TEXT="Пора закупаться! Лучшая цена за 48ч: \$$BTCUSD Двухдневка: $TEXT"
     for ID in `cat $DIR/userids.log`
     do
